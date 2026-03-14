@@ -152,8 +152,8 @@ img {
   font-weight: 500;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform 0.16s ease, box-shadow 0.16s ease,
-    background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  transition: transform 0.85s ease, box-shadow 0.85s ease,
+    background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .btn.primary {
@@ -163,8 +163,8 @@ img {
 }
 
 .btn.primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 22px 40px rgba(37, 99, 235, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 22px 45px rgba(37, 99, 235, 0.45);
 }
 
 .btn.ghost {
@@ -175,6 +175,8 @@ img {
 
 .btn.ghost:hover {
   background-color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
 }
 
 .btn.full-width {
@@ -467,8 +469,8 @@ img {
 }
 
 .avatar.small {
-  width: 32px;
-  height: 32px;
+  width: 70px;
+  height: 70px;
   font-size: 0.78rem;
 }
 
@@ -485,6 +487,37 @@ img {
 
 .profile-card.compact .profile-title {
   margin-bottom: 0.05rem;
+}
+
+/* Personnel profiles: slight moving RGB box shadow */
+.personnel .employee-grid .profile-card.compact {
+  animation: personnel-rgb-shadow 6s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.personnel .employee-grid .profile-card.compact:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12),
+    0 0 24px rgba(100, 150, 255, 0.35),
+    0 0 40px rgba(99, 102, 241, 0.2);
+}
+
+@keyframes personnel-rgb-shadow {
+  0%, 100% {
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08),
+      2px 2px 12px rgba(255, 80, 80, 0.25),
+      -1px -1px 8px rgba(80, 180, 255, 0.2);
+  }
+  33% {
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08),
+      -2px 2px 12px rgba(80, 255, 120, 0.25),
+      1px -1px 8px rgba(255, 100, 255, 0.2);
+  }
+  66% {
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08),
+      -2px -2px 12px rgba(80, 120, 255, 0.25),
+      1px 1px 8px rgba(255, 200, 80, 0.2);
+  }
 }
 
 .site-footer {
@@ -633,6 +666,29 @@ img {
 
 .footer-bottom-links a:hover {
   color: #e5e7eb;
+}
+
+/* Scroll animations */
+[data-animate="slide-left"] {
+  transform: translateX(10px);
+  opacity: 0;
+  transition: transform 0.85s ease-out, opacity 0.85s ease-out;
+}
+
+[data-animate="slide-left"].in-view {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+[data-animate="slide-up"] {
+  transform: translateY(60px);
+  opacity: 0;
+  transition: transform 1.55s ease-out, opacity 1.55s ease-out;
+}
+
+[data-animate="slide-up"].in-view {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 @media (max-width: 900px) {
